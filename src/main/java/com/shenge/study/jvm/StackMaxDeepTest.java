@@ -4,7 +4,8 @@ package com.shenge.study.jvm;
  * @author : Shi Yue Sheng
  * @date : 2020/11/15
  * @time : 8:35 PM
- * @desc : 栈最大深度测试
+ * @desc : 栈最大深度测试, 启动参数-Xss256k, 在我本机最小值不能小于160k, 这是操作系统、JVM共同决定的
+ * 结论：栈最大深度受到-Xss大小、方法局部变量于操作数栈深度（栈帧大小）所影响。
  */
 public class StackMaxDeepTest {
 
@@ -20,6 +21,11 @@ public class StackMaxDeepTest {
         loadIncr(a, b, c, d, e);
     }
 
+//    public void justIncr() {
+//        stackMaxDeep++;
+//        justIncr();
+//    }
+
     public static void main(String[] args) {
         StackMaxDeepTest test = new StackMaxDeepTest();
         try {
@@ -31,9 +37,3 @@ public class StackMaxDeepTest {
     }
 
 }
-
-
-//    public void justIncr() {
-//        stackMaxDeep++;
-//        justIncr();
-//    }
